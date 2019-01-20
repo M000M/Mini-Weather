@@ -35,12 +35,12 @@ public class SelectCity extends Activity implements View.OnClickListener {
     private TextView mTextBtn;
 
     //搜索栏和ListView
-    private ListView listView = null; //用于绑定select_city布局文件中的ListView
-    private TextView cityselected = null; //声明TextView对象，用于绑定布局文件中顶部栏的显示内容
+    private ListView listView; //用于绑定select_city布局文件中的ListView
+    private TextView cityselected; //声明TextView对象，用于绑定布局文件中顶部栏的显示内容
 
-    private List<City> listcity = MyApplication.getInstance().getCityList();
-    private int listSize = listcity.size();
-    private String[] city = new String[listSize]; //用于存储要在ListView中展示的内容
+    private List<City> listcity;
+    private int listSize;
+    private String[] city; //用于存储要在ListView中展示的内容
 
     private ArrayList<String> mSearchResult = new ArrayList<>(); //搜索结果，只存放城市名
     private Map<String, String> nameToCode = new HashMap<>(); //城市名到编码
@@ -59,6 +59,10 @@ public class SelectCity extends Activity implements View.OnClickListener {
         //onClick()方法要在这里写绑定监听事件
         mBackBtn = (ImageView) findViewById(R.id.title_back);
         mBackBtn.setOnClickListener(this);
+
+        listcity = MyApplication.getInstance().getCityList();
+        listSize = listcity.size();
+        city = new String[listSize];
 
         mTextBtn = (TextView) findViewById(R.id.title_name);
         mTextBtn.setOnClickListener(this);
@@ -115,12 +119,12 @@ public class SelectCity extends Activity implements View.OnClickListener {
                 temp = mSearchResult.size();
                 str = Integer.toString(temp);
                 Log.d("选择后：", str);
-//                String str = mSearch.getText().toString();
-//                for(int i = 0; i < listSize; i++){
-//                    if(city[i].indexOf(str) != -1){
-//                        mSearchResult.add(city[i]);
-//                    }
-//                }
+                String str1 = mSearch.getText().toString();
+                for(int i = 0; i < listSize; i++){
+                    if(city[i].indexOf(str1) != -1){
+                        mSearchResult.add(city[i]);
+                    }
+                }
             }
 
             @Override
@@ -134,7 +138,7 @@ public class SelectCity extends Activity implements View.OnClickListener {
         if(v.getId() == R.id.title_back) {
             Intent i = new Intent();
             if(returnCode.equals("")){
-                returnCode = "101010100";
+                returnCode = "101010400";
             }
             i.putExtra("cityCode", returnCode);
             setResult(RESULT_OK, i);

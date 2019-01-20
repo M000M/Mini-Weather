@@ -276,18 +276,6 @@
                     android:textSize="20.0sp"
                     />
 
-                <TextView
-                    android:id="@+id/position_text_view1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/current_temperature"
-                    android:layout_marginLeft="5dip"
-                    android:singleLine="false"
-                    android:text="HHH"
-                    android:textColor="@android:color/white"
-                    android:textSize="20.0sp"
-                    />
-
             </RelativeLayout>
 
         </RelativeLayout>
