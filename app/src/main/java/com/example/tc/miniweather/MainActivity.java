@@ -174,11 +174,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-//                    Toast.makeText(MainActivity.this,
-//                            "定位城市" + location.getCity() + " " + location.getDistrict(),
-//                            Toast.LENGTH_SHORT).show();
                     Toast.makeText(MainActivity.this,
-                            "定位城市 " + "北京" + " 大兴",
+                            "定位城市" + location.getCity() + " " + location.getDistrict(),
                             Toast.LENGTH_SHORT).show();
                 }
             });
