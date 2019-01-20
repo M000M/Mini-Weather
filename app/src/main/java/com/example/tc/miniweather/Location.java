@@ -131,9 +131,9 @@ public class Location extends AppCompatActivity {
                         currentPosition.append("网络");
                     }
                     currentPosition.append("\n");
-//                    String latitude = "" + location.getLatitude();
-//                    String longitude = "" + location.getLongitude();
-//                    getAddress(latitude, longitude);
+                    String latitude = "" + location.getLatitude();
+                    String longitude = "" + location.getLongitude();
+                    getAddress(latitude, longitude);
                     currentPosition.append("国家").append(location.getCountry()).append("\n");
                     currentPosition.append("省").append(location.getProvince()).append("\n");
 
